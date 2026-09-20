@@ -1,0 +1,27 @@
+data:
+  raw_path: "data/raw/churn_data.csv"
+  processed_path: "data/processed/churn_data_processed.csv"
+  test_size: 0.2
+  random_state: 42
+
+features:
+  numerical_cols:
+    - "tenure"
+    - "monthly_charges"
+    - "total_charges"
+  categorical_cols:
+    - "contract_type"
+    - "internet_service"
+    - "tech_support"
+  pipeline_path: "models/feature_pipeline.joblib"
+
+model:
+  path: "models/xgboost_model.joblib"
+  n_trials: 5
+  mlflow_tracking_uri: "http://mlflow:5000"
+  mlflow_experiment_name: "Customer_Churn_Prediction"
+
+api:
+  title: "Customer Churn Prediction API"
+  description: "API for predicting customer churn using XGBoost"
+  version: "1.0.0"
